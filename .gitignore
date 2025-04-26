@@ -1,0 +1,45 @@
+# IDE settings
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Env files
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+
+# Dist / build
+dist/
+build/
+.cache/
+.next/
+out/
+
+# Test / coverage
+coverage/
+.nyc_output/
+jest-cache/
+jest-output/
+
+# Misc
+*.local
+*.tgz
