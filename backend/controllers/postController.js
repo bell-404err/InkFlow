@@ -3,11 +3,11 @@ let posts = [
     { id: 2, title: "Второй пост", content: "Это контент второго поста", authorId: "user2" },
 ];
 
-const getAllPosts = (req, res) => {
+export const getAllPosts = (req, res) => {
     res.json(posts);
 };
 
-const createPost = (req, res) => {
+export const createPost = (req, res) => {
     const { title, content } = req.body;
     const userId = req.user.sub; // достаём ID юзера из токена
 
@@ -23,7 +23,7 @@ const createPost = (req, res) => {
     res.status(201).json(newPost);
 };
 
-const deletePost = (req, res) => {
+export const deletePost = (req, res) => {
     const postId = parseInt(req.params.id);
     const userId = req.user.sub;
 
@@ -40,10 +40,4 @@ const deletePost = (req, res) => {
     posts = posts.filter(p => p.id !== postId);
 
     res.json({ message: "Post deleted" });
-};
-
-module.exports = {
-    getAllPosts,
-    createPost,
-    deletePost,
 };

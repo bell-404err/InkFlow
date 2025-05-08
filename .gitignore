@@ -17,7 +17,6 @@ lerna-debug.log*
 
 # Env files
 .env
-.env.*
 prisma_shema_depr
 
 # OS files

@@ -1,6 +1,6 @@
-const express = require('express');
-const { getAllPosts, createPost, deletePost } = require('../controllers/postController');
-const { checkAuth } = require('../middlewares/authMiddleware');
+import express from 'express';
+import { getAllPosts, createPost, deletePost } from '../controllers/postController.js';
+import { checkAuth } from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
 
@@ -8,4 +8,8 @@ router.get('/', getAllPosts);
 router.post('/', checkAuth, createPost);
 router.delete('/:id', checkAuth, deletePost);
 
-module.exports = router;
+router.get('/test-protected', checkAuth, (req, res) => {
+    res.json({ message: `Valid token. User: ${req.user.sub}` });
+});
+
+export default router;

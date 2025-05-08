@@ -1,17 +1,21 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+
+import postsRoutes from './routes/posts.js';
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 4000;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-const postsRoutes = require('./routes/posts');
+app.get('/', (req, res) => {
+    res.send('Hey');
+});
+
 // const authRoutes = require('./routes/auth');
 
 app.use('/api/posts', postsRoutes);
