@@ -17,7 +17,10 @@ lerna-debug.log*
 
 # Env files
 .env
+
+# files
 prisma_shema_depr
+createpostBeforeMui
 
 # OS files
 .DS_Store
@@ -33,6 +36,9 @@ build/
 .cache/
 .next/
 out/
+generated/
+migrations/
+
 
 # Test / coverage
 coverage/

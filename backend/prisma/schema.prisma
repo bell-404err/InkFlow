@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id // Auth0 `sub`
+  name      String
+  posts     Post[]    @relation("UserPosts") // убрали onDelete здесь
+  comments  Comment[]
+  stars     Star[]
+  createdAt DateTime  @default(now())
+
+  @@index([createdAt])
+}
+
+model Post {
+  id         String    @id @default(uuid())
+  title      String
+  slug       String    @unique
+  content    Json
+  category   Category  @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  categoryId String
+  author     User      @relation("UserPosts", fields: [authorId], references: [id], onDelete: Cascade)
+  authorId   String
+  comments   Comment[]
+  stars      Star[]
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  @@index([createdAt])
+}
+
+model Comment {
+  id        String    @id @default(uuid())
+  content   String
+  post      Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    String
+  author    User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId  String
+  parent    Comment?  @relation("CommentThread", fields: [parentId], references: [id], onDelete: Cascade)
+  parentId  String?
+  children  Comment[] @relation("CommentThread") // убрали onDelete здесь
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@index([createdAt])
+}
+
+model Star {
+  id        String   @id @default(uuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    String
+  createdAt DateTime @default(now())
+
+  @@unique([userId, postId])
+}
+
+model Category {
+  id          String   @id
+  name        String   @unique
+  description String?
+  posts       Post[] // убрали onDelete здесь
+  createdAt   DateTime @default(now())
+
+  @@index([createdAt])
+}

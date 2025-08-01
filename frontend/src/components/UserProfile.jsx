@@ -39,8 +39,6 @@ const UserProfile = () => {
 
                 <MenuItem onClick={handleMenuClose}>Your profile</MenuItem>
 
-                {/* Можно добавить переключатель темы здесь */}
-
                 <MenuItem
                     onClick={() =>
                         logout({ returnTo: window.location.origin })

@@ -1,0 +1,29 @@
+/* editorjs-custom.css */
+
+/* Обычные ссылки и ссылки-превью в Editor.js */
+.ce-block a,
+.cdx-link-tool__content {
+    color: #f5f5f5;
+    background: rgba(255,255,255,0.10);
+    border-radius: 10px;
+    padding: 6px 10px;
+    text-decoration: underline;
+    transition: background 0.2s;
+}
+
+.ce-block a:hover,
+.cdx-link-tool__content:hover {
+    background: rgba(243,238,255,0.18);
+    color: #E1DAF7;
+}
+
+.cdx-link-tool__title,
+.cdx-link-tool__description {
+    color: #f5f5f5 !important;
+}
+
+.cdx-link-tool__content {
+    background: rgba(255,255,255,0.09) !important;
+    border: 1px solid rgba(179,157,219,0.13);
+    box-shadow: 0 2px 10px 0 rgba(107, 80, 125, 0.09);
+}
