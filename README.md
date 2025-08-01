@@ -1,6 +1,6 @@
 # Diploma Web Blog
 
-A full-stack web blog platform created as a diploma project.  
+A monolith full-stack web blog platform created as a diploma project.  
 It supports user registration, authentication, post creation, and categorized viewing of blog entries.
 
 ---
@@ -8,7 +8,7 @@ It supports user registration, authentication, post creation, and categorized vi
 ## 🧰 Tech Stack
 
 ### Frontend
-- React
+- React, React Router
 - Vite
 - Editor.js
 
@@ -23,12 +23,6 @@ It supports user registration, authentication, post creation, and categorized vi
 
 ---
 
-## 🚧 Project Status
-
-🛠️ This project is currently under active development. Some features are already implemented, others are planned.
-
----
-
 ## ⚙️ Getting Started
 
 ### Prerequisites
@@ -36,7 +30,7 @@ It supports user registration, authentication, post creation, and categorized vi
 Before running the project, make sure you have the following installed and configured:
 
 - **Node.js** (v18 or higher recommended)
-- **npm** (comes with Node.js)
+- **npm** (nvm - recommended)
 - **PostgreSQL** (with a database created and running)
 - **Auth0 account**
     - Create an Application (Single Page App)
@@ -72,11 +66,11 @@ npm run dev
 
 ### Core Features
 - 🔐 User registration and login via Auth0
-- ✍️ Create, edit, and delete blog posts
+- ✍️ Managing posts
 - 👀 View blog posts created by other users
 - 🗂️ Sort blog posts by categories (News, IT, etc.) and filters (Top-100, Latest, etc.)
 - ⭐ Mark blog posts as favorites
-- 💬 Add comments under blog posts
+- 💬 Add comments under blog posts (Cascading comments)
 
 ### Planned or Optional Features
 - 👍👎 Like/dislike comments *(feature under consideration)*
@@ -92,16 +86,16 @@ npm run dev
 - [x] Configure Auth0 integration (Express + React)
 - [x] Create authorization middleware and route guards
 - [x] Create post creation endpoint (backend)
-- [ ] Connect PostgreSQL and configure Prisma
-- [ ] Integrate Editor.js into frontend
-- [ ] Display posts on frontend (list or cards)
+- [x] Connect PostgreSQL and configure Prisma
+- [x] Integrate Editor.js into frontend
+- [x] Display posts on frontend (list or cards)
 - [ ] Link posts to their authors (user identification)
-- [ ] Implement comments system
-- [ ] Enable editing and deleting user’s own posts
+- [x] Implement comments system
+- [x] Enable editing and deleting user’s own posts
 - [ ] Add admin-only functionality (delete any post)
-- [ ] Add client-side form validation
-- [ ] Handle backend errors and show UI feedback
-- [ ] Apply responsive design and basic styling
+- [x] Add client-side form validation
+- [x] Handle backend errors and show UI feedback
+
 
 
 ---
