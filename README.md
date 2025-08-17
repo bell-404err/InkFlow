@@ -1,4 +1,4 @@
-# Diploma Web Blog
+# InkFlow
 
 A monolith full-stack web blog platform created as a diploma project.  
 It supports user registration, authentication, post creation, and categorized viewing of blog entries.
